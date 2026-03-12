@@ -1,7 +1,7 @@
-import { motion } from 'framer-motion';
-import { useInView } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { Code2, Server, Cloud, Network, Wrench } from 'lucide-react';
+import { ParticleCard, GlobalSpotlight } from '../effects/MagicBento';
 
 const groups = [
   {
@@ -38,10 +38,12 @@ const groups = [
 
 export default function Skills() {
   const ref = useRef(null);
+  const gridRef = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: '-80px' });
 
   return (
-    <section className="section skills-bg" id="skills" ref={ref}>
+    <section className="section skills-bg" ref={ref}>
+      <GlobalSpotlight gridRef={gridRef} glowColor="79, 126, 248" spotlightRadius={280} />
       <div className="container">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -52,22 +54,29 @@ export default function Skills() {
           <h2 className="section-title">Tecnologías y herramientas</h2>
         </motion.div>
 
-        <div className="skills-grid">
+        <div className="skills-grid bento-section" ref={gridRef}>
           {groups.map((g, i) => (
             <motion.div
               key={g.name}
-              className="skill-group"
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.1 + i * 0.07 }}
             >
-              <div className="skill-group-header">
-                <div className={`skill-group-icon ${g.iconClass}`}>{g.icon}</div>
-                <span className="skill-group-name">{g.name}</span>
-              </div>
-              <div className="skill-tags">
-                {g.tags.map(t => <span key={t} className="skill-tag">{t}</span>)}
-              </div>
+              <ParticleCard
+                className="skill-group magic-bento-card magic-bento-card--border-glow"
+                glowColor="79, 126, 248"
+                enableTilt={true}
+                clickEffect={true}
+                particleCount={8}
+              >
+                <div className="skill-group-header">
+                  <div className={`skill-group-icon ${g.iconClass}`}>{g.icon}</div>
+                  <span className="skill-group-name">{g.name}</span>
+                </div>
+                <div className="skill-tags">
+                  {g.tags.map(t => <span key={t} className="skill-tag">{t}</span>)}
+                </div>
+              </ParticleCard>
             </motion.div>
           ))}
         </div>

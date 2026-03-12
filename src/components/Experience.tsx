@@ -29,7 +29,7 @@ export default function Experience() {
   const inView = useInView(ref, { once: true, margin: '-80px' });
 
   return (
-    <section className="section exp-bg" id="experience" ref={ref}>
+    <section className="section exp-bg" ref={ref}>
       <div className="container">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

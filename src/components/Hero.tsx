@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { ArrowDown, Github, Linkedin } from 'lucide-react';
+import DecryptedText from '../effects/DecryptedText';
 
 export default function Hero() {
   return (
@@ -24,8 +25,15 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
-            Johan B.<br />
-            <span className="grad-text">Hernandez Raya</span>
+            <DecryptedText
+              text="Johan B. Hernandez Raya"
+              animateOn="view"
+              sequential={true}
+              speed={40}
+              revealDirection="start"
+              className="grad-text"
+              encryptedClassName="encrypted-text"
+            />
           </motion.h1>
 
           <motion.p
@@ -35,7 +43,7 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             Ing. en Sistemas Computacionales · Desarrollador Frontend
-            con enfoque en React y TypeScript. Inglés C1 · Bachilleres, Q.R.
+            con enfoque en React y TypeScript.
           </motion.p>
 
           <motion.div

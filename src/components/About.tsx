@@ -1,7 +1,7 @@
-import { motion } from 'framer-motion';
-import { useInView } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { User } from 'lucide-react';
+import handsome from '../imgs/handsome.png';
+import ProfileCard from '../effects/ProfileCard';
 
 const softSkills = [
   'Proactividad', 'Trabajo en equipo', 'Ganas de aprender',
@@ -26,17 +26,22 @@ export default function About() {
 
         <div className="about-grid">
           <motion.div
-            className="about-photo-wrap"
+            className="about-profile-wrap"
             initial={{ opacity: 0, x: -30 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
-            {/* Reemplaza con: <img src="/assets/photo.jpg" alt="Johan" className="about-photo" /> */}
-            <div className="photo-placeholder">
-              <User size={40} />
-              <span>Tu foto aquí</span>
-            </div>
-            <div className="about-glow" />
+            <ProfileCard
+              avatarUrl={handsome}
+              name="Johan H R"
+              title="Frontend Developer"
+              handle="JohanHdezRy"
+              status="Disponible"
+              contactText="Contactar"
+              behindGlowColor="rgba(79, 126, 248, 0.6)"
+              innerGradient="linear-gradient(145deg, #1a1a3e99 0%, #4f7ef844 100%)"
+              onContactClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
+            />
           </motion.div>
 
           <motion.div

@@ -8,7 +8,7 @@ export default function Education() {
   const inView = useInView(ref, { once: true, margin: '-80px' });
 
   return (
-    <section className="section" id="education" ref={ref}>
+    <section className="section" ref={ref}>
       <div className="container">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
