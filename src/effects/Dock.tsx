@@ -6,7 +6,8 @@ import {
   AnimatePresence,
   MotionValue,
 } from 'framer-motion';
-import { Children, cloneElement, useEffect, useRef, useState, ReactNode } from 'react';
+import { Children, cloneElement, useEffect, useRef, useState } from 'react';
+import type { ReactNode } from 'react';
 import './Dock.css';
 
 interface DockItemProps {
