@@ -1,8 +1,11 @@
 import { motion } from 'framer-motion';
 import { ArrowDown, Github, Linkedin } from 'lucide-react';
 import DecryptedText from '../effects/DecryptedText';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function Hero() {
+  const { t } = useLanguage();
+
   return (
     <section className="hero" id="hero">
       <div className="hero-bg" />
@@ -15,7 +18,7 @@ export default function Hero() {
           >
             <div className="hero-tag">
               <span />
-              Disponible para nuevas oportunidades
+              {t.hero.available}
             </div>
           </motion.div>
 
@@ -42,8 +45,7 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            Ing. en Sistemas Computacionales · Desarrollador Frontend
-            con enfoque en React y TypeScript.
+            {t.hero.title}
           </motion.p>
 
           <motion.div
@@ -52,7 +54,7 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
           >
-            <a href="#projects" className="btn-primary">Ver proyectos</a>
+            <a href="#projects" className="btn-primary">{t.hero.viewProjects}</a>
             <a
               href="https://github.com/JohanHdezRy"
               target="_blank"

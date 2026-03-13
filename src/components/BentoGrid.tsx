@@ -5,43 +5,8 @@ import Skills from './Skills';
 import Projects from './Projects';
 import Experience from './Experience';
 import Education from './Education';
+import { useLanguage } from '../context/LanguageContext';
 import './BentoGrid.css';
-
-
-const CARDS = [
-  {
-    id: 'skills',
-    label: 'Habilidades',
-    title: 'Tecnologías y herramientas',
-    subtitle: '5 áreas · 18+ tecnologías',
-    Icon: Code2,
-    accent: 'var(--blue)',
-  },
-  {
-    id: 'projects',
-    label: 'Proyectos',
-    title: 'Lo que he construido',
-    subtitle: '4 proyectos destacados',
-    Icon: Layers,
-    accent: 'var(--purple)',
-  },
-  {
-    id: 'experience',
-    label: 'Experiencia',
-    title: 'Proyectos y desarrollo',
-    subtitle: '3 proyectos académicos',
-    Icon: Briefcase,
-    accent: 'var(--blue)',
-  },
-  {
-    id: 'education',
-    label: 'Educación',
-    title: 'Ingeniería en Sistemas',
-    subtitle: 'TecNM · 2022 – 2026',
-    Icon: GraduationCap,
-    accent: 'var(--purple)',
-  },
-] as const;
 
 const MODAL_CONTENT: Record<string, React.ReactNode> = {
   skills: <Skills />,
@@ -51,7 +16,15 @@ const MODAL_CONTENT: Record<string, React.ReactNode> = {
 };
 
 export default function BentoGrid() {
+  const { t } = useLanguage();
   const [openId, setOpenId] = useState<string | null>(null);
+
+  const CARDS = [
+    { id: 'skills',     Icon: Code2,        accent: 'var(--blue)',   ...t.bento.cards.skills },
+    { id: 'projects',   Icon: Layers,       accent: 'var(--purple)', ...t.bento.cards.projects },
+    { id: 'experience', Icon: Briefcase,    accent: 'var(--blue)',   ...t.bento.cards.experience },
+    { id: 'education',  Icon: GraduationCap,accent: 'var(--purple)', ...t.bento.cards.education },
+  ] as const;
 
   useEffect(() => {
     document.body.style.overflow = openId ? 'hidden' : '';
@@ -67,8 +40,8 @@ export default function BentoGrid() {
   return (
     <section className="section" id="portfolio">
       <div className="container">
-        <p className="section-label">Portfolio</p>
-        <h2 className="section-title">Explora mi trabajo</h2>
+        <p className="section-label">{t.bento.label}</p>
+        <h2 className="section-title">{t.bento.heading}</h2>
 
         <div className="bento-main-grid">
           {CARDS.map(({ id, label, title, subtitle, Icon, accent }) => (
@@ -81,7 +54,6 @@ export default function BentoGrid() {
               whileHover={{ scale: 1.015, transition: { duration: 0.15 } }}
               whileTap={{ scale: 0.97 }}
             >
-              {/* Large decorative icon background */}
               <div className="bento-bg-icon" style={{ color: accent }}>
                 <Icon size={180} />
               </div>
@@ -123,7 +95,7 @@ export default function BentoGrid() {
               <button
                 className="bento-close-btn"
                 onClick={() => setOpenId(null)}
-                aria-label="Cerrar"
+                aria-label={t.bento.close}
               >
                 <X size={17} />
               </button>

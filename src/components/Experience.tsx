@@ -2,29 +2,10 @@ import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { Briefcase } from 'lucide-react';
-
-const items = [
-  {
-    title: 'Sistema de seguimiento y evaluación de egresados',
-    org: 'Proyecto académico · TecNM ITSFCP',
-    period: '2024',
-    desc: 'Desarrollé una aplicación para el seguimiento, evaluación y mejora continua de egresados, permitiendo recopilar y analizar datos sobre su trayectoria profesional post-egreso. [Puedes editar este texto con más detalles del proyecto]',
-  },
-  {
-    title: 'Solver de métodos numéricos',
-    org: 'Proyecto académico · TecNM ITSFCP',
-    period: '2023',
-    desc: 'Implementé una herramienta de resolución numérica que incluye algoritmos como bisección, Newton-Raphson y Runge-Kutta, con visualización de resultados paso a paso. [Puedes editar este texto con más detalles]',
-  },
-  {
-    title: 'Redes neuronales artificiales de segunda generación',
-    org: 'Proyecto de investigación · TecNM ITSFCP',
-    period: '2024',
-    desc: 'Diseñé e implementé redes neuronales artificiales de segunda generación (spiking neural networks) como proyecto de investigación aplicada, explorando modelos bio-inspirados. [Puedes editar este texto con más detalles]',
-  },
-];
+import { useLanguage } from '../context/LanguageContext';
 
 export default function Experience() {
+  const { t } = useLanguage();
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: '-80px' });
 
@@ -36,12 +17,12 @@ export default function Experience() {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          <p className="section-label">Experiencia</p>
-          <h2 className="section-title">Proyectos y desarrollo</h2>
+          <p className="section-label">{t.experience.label}</p>
+          <h2 className="section-title">{t.experience.heading}</h2>
         </motion.div>
 
         <div className="timeline">
-          {items.map((item, i) => (
+          {t.experience.items.map((item, i) => (
             <motion.div
               key={item.title}
               className="timeline-item"

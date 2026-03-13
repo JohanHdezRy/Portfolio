@@ -2,8 +2,10 @@ import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { GraduationCap } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function Education() {
+  const { t } = useLanguage();
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: '-80px' });
 
@@ -15,8 +17,8 @@ export default function Education() {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          <p className="section-label">Educación</p>
-          <h2 className="section-title">Formación académica</h2>
+          <p className="section-label">{t.education.label}</p>
+          <h2 className="section-title">{t.education.heading}</h2>
         </motion.div>
 
         <motion.div
@@ -29,8 +31,8 @@ export default function Education() {
             <GraduationCap size={24} />
           </div>
           <div className="edu-info">
-            <h3>Ingeniería en Sistemas Computacionales</h3>
-            <p className="edu-school">TecNM — Instituto Tecnológico Superior de Felipe Carrillo Puerto</p>
+            <h3>{t.education.degree}</h3>
+            <p className="edu-school">{t.education.school}</p>
             <span className="edu-period">2022 – 2026</span>
           </div>
         </motion.div>
