@@ -31,7 +31,7 @@ export default function About() {
             <ProfileCard
               avatarUrl={handsome}
               name="Johan H R"
-              title="Frontend Developer"
+              title="Full-Stack Developer"
               handle="JohanHdezRy"
               status={t.about.status}
               contactText={t.about.contactText}

@@ -33,7 +33,7 @@ export default function Education() {
           <div className="edu-info">
             <h3>{t.education.degree}</h3>
             <p className="edu-school">{t.education.school}</p>
-            <span className="edu-period">2022 – 2026</span>
+            <span className="edu-period">2021 – 2025</span>
           </div>
         </motion.div>
       </div>

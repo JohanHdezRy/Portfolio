@@ -11,11 +11,11 @@ export default function Skills() {
   const inView = useInView(ref, { once: true, margin: '-80px' });
 
   const groups = [
-    { icon: <Code2 size={18} />,    iconClass: 'icon-blue',   name: 'Frontend',              tags: ['JavaScript', 'TypeScript', 'React', 'HTML', 'CSS'] },
-    { icon: <Server size={18} />,   iconClass: 'icon-purple', name: 'Backend & BD',           tags: ['Java', 'C++', 'Python', 'PostgreSQL', 'MongoDB'] },
-    { icon: <Cloud size={18} />,    iconClass: 'icon-cyan',   name: 'DevOps / Cloud',         tags: ['Docker', 'Terraform', 'GitHub', 'GitLab CI/CD'] },
-    { icon: <Network size={18} />,  iconClass: 'icon-green',  name: t.skills.groups.networks, tags: ['CCNA', 'CCNP'] },
-    { icon: <Wrench size={18} />,   iconClass: 'icon-orange', name: t.skills.groups.tools,    tags: ['Figma', 'XAMPP', 'Visual Studio', 'Git'] },
+    { icon: <Code2 size={18} />,    iconClass: 'icon-blue',   name: 'Frontend',              tags: ['React', 'TypeScript', 'JavaScript', 'Tailwind', 'Vite'] },
+    { icon: <Server size={18} />,   iconClass: 'icon-purple', name: 'Backend & BD',           tags: ['Node.js', 'Express.js', '.NET', 'PostgreSQL', 'MySQL'] },
+    { icon: <Cloud size={18} />,    iconClass: 'icon-cyan',   name: 'DevOps / Cloud',         tags: ['Docker', 'GitHub', 'GitLab CI/CD'] },
+    { icon: <Network size={18} />,  iconClass: 'icon-green',  name: t.skills.groups.networks, tags: ['CCNA'] },
+    { icon: <Wrench size={18} />,   iconClass: 'icon-orange', name: t.skills.groups.tools,    tags: ['VS Code', 'Figma', 'Cursor', 'Postman', 'Git'] },
   ];
 
   return (

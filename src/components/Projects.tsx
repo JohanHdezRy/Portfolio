@@ -9,10 +9,10 @@ import { ParticleCard, GlobalSpotlight } from '../effects/MagicBento';
 import { useLanguage } from '../context/LanguageContext';
 
 const projectsMeta = [
-  { name: 'Task Manager',      tags: ['React', 'TypeScript', 'Zustand', 'Tailwind'], demo: 'https://johanhdezry.github.io/Task-Manager/',      repo: 'https://github.com/JohanHdezRy/Task-Manager',          img: task },
-  { name: 'Inventory System',  tags: ['React', 'TypeScript', 'LocalStorage'],        demo: 'https://johanhdezry.github.io/Inventory-System/',    repo: 'https://github.com/JohanHdezRy/Inventory-System',      img: invetario },
-  { name: 'GIF Finder',        tags: ['React', 'TypeScript', 'Axios', 'Giphy API'],  demo: 'https://johanhdezry.github.io/Gifs-Search/',         repo: 'https://github.com/JohanHdezRy/Gifs-Search',          img: gifs },
-  { name: 'Hotel-Demos-Web',   tags: ['React', 'TypeScript', 'Axios'],               demo: 'https://johanhdezry.github.io/Hotel-Demos-Web/',     repo: 'https://github.com/JohanHdezRy/Hotel-Demos-Web.git',   img: hotel },
+  { name: 'Task Manager',      tags: ['React 19', 'TypeScript', 'Zustand', 'Tailwind'],       demo: 'https://johanhdezry.github.io/Task-Manager/',      repo: 'https://github.com/JohanHdezRy/Task-Manager',          img: task },
+  { name: 'Inventory System',  tags: ['React 19', 'TypeScript', 'Lucide', 'Vite'],            demo: 'https://johanhdezry.github.io/Inventory-System/',    repo: 'https://github.com/JohanHdezRy/Inventory-System',      img: invetario },
+  { name: 'GIF Finder',        tags: ['React', 'TypeScript', 'Axios', 'Giphy API'],           demo: 'https://johanhdezry.github.io/Gifs-Search/',         repo: 'https://github.com/JohanHdezRy/Gifs-Search',          img: gifs },
+  { name: 'Hotel Demos Web',   tags: ['React 19', 'TypeScript', 'Pure CSS', 'Motion'],        demo: 'https://johanhdezry.github.io/Hotel-Demos-Web/',     repo: 'https://github.com/JohanHdezRy/Hotel-Demos-Web.git',   img: hotel },
 ];
 
 export default function Projects() {
