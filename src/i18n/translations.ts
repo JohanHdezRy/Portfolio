@@ -10,8 +10,14 @@ export interface Translations {
   };
   hero: {
     available: string;
-    title: string;
+    role1: string;
+    role2: string;
+    typingTexts: readonly string[];
+    description: string;
+    techTags: readonly string[];
+    contactBtn: string;
     viewProjects: string;
+    title: string;
   };
   about: {
     label: string;
@@ -79,8 +85,14 @@ export const translations: Record<Lang, Translations> = {
     },
     hero: {
       available: 'Disponible para nuevas oportunidades',
-      title: 'Ing. en Sistemas Computacionales · Desarrollador full-stack con fuerte enfoque en frontend moderno.',
+      role1: 'Ing. en Sistemas',
+      role2: 'Computacionales',
+      typingTexts: ['Entusiasta de la tecnología', 'Desarrollador Full-Stack', 'Diseñador de experiencias'],
+      description: 'Construyo interfaces limpias, escalables y de alto rendimiento que impresionan.',
+      techTags: ['React', 'TypeScript', 'Node.js', 'Figma'],
+      contactBtn: 'Contacto',
       viewProjects: 'Ver proyectos',
+      title: 'Ing. en Sistemas Computacionales · Desarrollador full-stack con fuerte enfoque en frontend moderno.',
     },
     about: {
       label: 'Sobre mí',
@@ -164,8 +176,14 @@ export const translations: Record<Lang, Translations> = {
     },
     hero: {
       available: 'Available for new opportunities',
-      title: 'Computer Systems Engineer · Full-stack developer with a strong focus on modern frontend.',
+      role1: 'Computer Systems',
+      role2: 'Engineer',
+      typingTexts: ['Tech Enthusiast', 'Full-Stack Developer', 'Experience Designer'],
+      description: 'Building smooth, scalable, and high-performance interfaces that impress.',
+      techTags: ['React', 'TypeScript', 'Node.js', 'Figma'],
+      contactBtn: 'Contact',
       viewProjects: 'View projects',
+      title: 'Computer Systems Engineer · Full-stack developer with a strong focus on modern frontend.',
     },
     about: {
       label: 'About me',

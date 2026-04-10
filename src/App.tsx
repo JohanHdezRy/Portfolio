@@ -2,7 +2,8 @@ import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import About from './components/About'
 import TechBanner from './components/TechBanner'
-import BentoGrid from './components/BentoGrid'
+import Projects from './components/Projects'
+import Experience from './components/Experience'
 import Contact from './components/Contact'
 import LiquidEther from './effects/LiquidEther'
 import { LanguageProvider, useLanguage } from './context/LanguageContext'
@@ -28,7 +29,8 @@ function AppContent() {
         <Hero />
         <About />
         <TechBanner />
-        <BentoGrid />
+        <Projects />
+        <Experience />
         <Contact />
         <footer>
           <p>{t.footer.builtBy} <span className="grad-text">Johan B. Hernandez Raya</span> · {new Date().getFullYear()}</p>
