@@ -1,13 +1,13 @@
-import { motion } from 'framer-motion';
-import { useInView } from 'framer-motion';
-import { useRef } from 'react';
-import { GraduationCap } from 'lucide-react';
-import { useLanguage } from '../context/LanguageContext';
+import { motion } from "framer-motion";
+import { useInView } from "framer-motion";
+import { useRef } from "react";
+import { GraduationCap } from "lucide-react";
+import { useLanguage } from "../context/LanguageContext";
 
 export default function Education() {
   const { t } = useLanguage();
   const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: '-80px' });
+  const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
     <section className="section" ref={ref}>

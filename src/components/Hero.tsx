@@ -1,11 +1,11 @@
-import { motion } from 'framer-motion';
-import { useState, useEffect } from 'react';
-import { ExternalLink, Mail, Github, Linkedin } from 'lucide-react';
-import DecryptedText from '../effects/DecryptedText';
-import { useLanguage } from '../context/LanguageContext';
+import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
+import { ExternalLink, Mail, Github, Linkedin } from "lucide-react";
+import DecryptedText from "../effects/DecryptedText";
+import { useLanguage } from "../context/LanguageContext";
 
 function TypingText({ texts }: { texts: readonly string[] }) {
-  const [displayText, setDisplayText] = useState('');
+  const [displayText, setDisplayText] = useState("");
   const [textIndex, setTextIndex] = useState(0);
   const [charIndex, setCharIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
@@ -20,18 +20,21 @@ function TypingText({ texts }: { texts: readonly string[] }) {
       if (!isDeleting) {
         if (charIndex < current.length) {
           setDisplayText(current.slice(0, charIndex + 1));
-          setCharIndex(c => c + 1);
+          setCharIndex((c) => c + 1);
         } else {
           setIsPaused(true);
-          setTimeout(() => { setIsPaused(false); setIsDeleting(true); }, 2200);
+          setTimeout(() => {
+            setIsPaused(false);
+            setIsDeleting(true);
+          }, 2200);
         }
       } else {
         if (charIndex > 0) {
           setDisplayText(current.slice(0, charIndex - 1));
-          setCharIndex(c => c - 1);
+          setCharIndex((c) => c - 1);
         } else {
           setIsDeleting(false);
-          setTextIndex(i => (i + 1) % texts.length);
+          setTextIndex((i) => (i + 1) % texts.length);
         }
       }
     }, delay);
@@ -50,16 +53,13 @@ function TypingText({ texts }: { texts: readonly string[] }) {
 export default function Hero() {
   const { t } = useLanguage();
 
-
   return (
     <section className="hero" id="hero">
       <div className="hero-bg" />
       <div className="container">
         <div className="hero-layout">
-
           {/* Left: content */}
           <div className="hero-content">
-
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -89,7 +89,9 @@ export default function Hero() {
               </p>
               <h1 className="hero-role">
                 <span className="hero-role-line1">{t.hero.role1}</span>
-                <span className="hero-role-line2 grad-text">{t.hero.role2}</span>
+                <span className="hero-role-line2 grad-text">
+                  {t.hero.role2}
+                </span>
               </h1>
             </motion.div>
 
@@ -117,8 +119,10 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.45 }}
             >
-              {t.hero.techTags.map(tag => (
-                <span key={tag} className="hero-tech-tag">{tag}</span>
+              {t.hero.techTags.map((tag) => (
+                <span key={tag} className="hero-tech-tag">
+                  {tag}
+                </span>
               ))}
             </motion.div>
 
@@ -161,7 +165,6 @@ export default function Hero() {
                 <Linkedin size={18} />
               </a>
             </motion.div>
-
           </div>
 
           {/* Right: Kirby (transparent GIF) */}
@@ -169,11 +172,14 @@ export default function Hero() {
             className="hero-gif-wrap"
             initial={{ opacity: 0, scale: 0.85 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.7, delay: 0.3, ease: 'easeOut' }}
+            transition={{ duration: 0.7, delay: 0.3, ease: "easeOut" }}
           >
-            <img src={`${import.meta.env.BASE_URL}kirby.gif`} alt="Kirby" className="hero-gif" />
+            <img
+              src={`${import.meta.env.BASE_URL}kirby.gif`}
+              alt="Kirby"
+              className="hero-gif"
+            />
           </motion.div>
-
         </div>
       </div>
     </section>

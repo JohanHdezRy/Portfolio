@@ -1,7 +1,7 @@
-import { useRef, useEffect } from 'react';
-import { gsap } from 'gsap';
-import { Github, ExternalLink } from 'lucide-react';
-import './ChromaGrid.css';
+import { useRef, useEffect } from "react";
+import { gsap } from "gsap";
+import { Github, ExternalLink } from "lucide-react";
+import "./ChromaGrid.css";
 
 export interface ChromaItem {
   image: string;
@@ -26,12 +26,12 @@ interface ChromaGridProps {
 
 export default function ChromaGrid({
   items,
-  className = '',
+  className = "",
   radius = 340,
   columns = 2,
   damping = 0.45,
   fadeOut = 0.6,
-  ease = 'power3.out',
+  ease = "power3.out",
 }: ChromaGridProps) {
   const rootRef = useRef<HTMLDivElement>(null);
   const fadeRef = useRef<HTMLDivElement>(null);
@@ -42,8 +42,8 @@ export default function ChromaGrid({
   useEffect(() => {
     const el = rootRef.current;
     if (!el) return;
-    setX.current = gsap.quickSetter(el, '--x', 'px') as (v: number) => void;
-    setY.current = gsap.quickSetter(el, '--y', 'px') as (v: number) => void;
+    setX.current = gsap.quickSetter(el, "--x", "px") as (v: number) => void;
+    setY.current = gsap.quickSetter(el, "--y", "px") as (v: number) => void;
     const { width, height } = el.getBoundingClientRect();
     pos.current = { x: width / 2, y: height / 2 };
     setX.current(pos.current.x);
@@ -52,7 +52,8 @@ export default function ChromaGrid({
 
   const moveTo = (x: number, y: number) => {
     gsap.to(pos.current, {
-      x, y,
+      x,
+      y,
       duration: damping,
       ease,
       onUpdate: () => {
@@ -70,26 +71,30 @@ export default function ChromaGrid({
   };
 
   const handleLeave = () => {
-    gsap.to(fadeRef.current, { opacity: 1, duration: fadeOut, overwrite: true });
+    gsap.to(fadeRef.current, {
+      opacity: 1,
+      duration: fadeOut,
+      overwrite: true,
+    });
   };
 
   const handleCardMove = (e: React.MouseEvent<HTMLElement>) => {
     const card = e.currentTarget as HTMLElement;
     const rect = card.getBoundingClientRect();
-    card.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);
-    card.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
+    card.style.setProperty("--mouse-x", `${e.clientX - rect.left}px`);
+    card.style.setProperty("--mouse-y", `${e.clientY - rect.top}px`);
   };
 
   const openLink = (e: React.MouseEvent, url: string) => {
     e.stopPropagation();
-    window.open(url, '_blank', 'noopener,noreferrer');
+    window.open(url, "_blank", "noopener,noreferrer");
   };
 
   return (
     <div
       ref={rootRef}
       className={`chroma-grid ${className}`}
-      style={{ '--r': `${radius}px`, '--cols': columns } as React.CSSProperties}
+      style={{ "--r": `${radius}px`, "--cols": columns } as React.CSSProperties}
       onPointerMove={handleMove}
       onPointerLeave={handleLeave}
     >
@@ -98,10 +103,12 @@ export default function ChromaGrid({
           key={i}
           className="chroma-card"
           onMouseMove={handleCardMove}
-          style={{
-            '--card-border': c.borderColor ?? 'transparent',
-            '--card-gradient': c.gradient,
-          } as React.CSSProperties}
+          style={
+            {
+              "--card-border": c.borderColor ?? "transparent",
+              "--card-gradient": c.gradient,
+            } as React.CSSProperties
+          }
         >
           <div className="chroma-img-wrapper">
             <img src={c.image} alt={c.title} loading="lazy" />
@@ -113,7 +120,7 @@ export default function ChromaGrid({
                 {c.github && (
                   <button
                     className="chroma-link-btn"
-                    onClick={e => openLink(e, c.github!)}
+                    onClick={(e) => openLink(e, c.github!)}
                     aria-label="GitHub"
                     title="GitHub"
                   >
@@ -123,7 +130,7 @@ export default function ChromaGrid({
                 {c.demo && (
                   <button
                     className="chroma-link-btn"
-                    onClick={e => openLink(e, c.demo!)}
+                    onClick={(e) => openLink(e, c.demo!)}
                     aria-label="Live demo"
                     title="Live demo"
                   >

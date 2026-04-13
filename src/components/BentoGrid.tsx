@@ -1,12 +1,12 @@
-import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Code2, Layers, Briefcase, GraduationCap, X } from 'lucide-react';
-import Skills from './Skills';
-import Projects from './Projects';
-import Experience from './Experience';
-import Education from './Education';
-import { useLanguage } from '../context/LanguageContext';
-import './BentoGrid.css';
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Code2, Layers, Briefcase, GraduationCap, X } from "lucide-react";
+import Skills from "./Skills";
+import Projects from "./Projects";
+import Experience from "./Experience";
+import Education from "./Education";
+import { useLanguage } from "../context/LanguageContext";
+import "./BentoGrid.css";
 
 const MODAL_CONTENT: Record<string, React.ReactNode> = {
   skills: <Skills />,
@@ -20,21 +20,45 @@ export default function BentoGrid() {
   const [openId, setOpenId] = useState<string | null>(null);
 
   const CARDS = [
-    { id: 'skills',     Icon: Code2,        accent: 'var(--blue)',   ...t.bento.cards.skills },
-    { id: 'projects',   Icon: Layers,       accent: 'var(--purple)', ...t.bento.cards.projects },
-    { id: 'experience', Icon: Briefcase,    accent: 'var(--blue)',   ...t.bento.cards.experience },
-    { id: 'education',  Icon: GraduationCap,accent: 'var(--purple)', ...t.bento.cards.education },
+    {
+      id: "skills",
+      Icon: Code2,
+      accent: "var(--blue)",
+      ...t.bento.cards.skills,
+    },
+    {
+      id: "projects",
+      Icon: Layers,
+      accent: "var(--purple)",
+      ...t.bento.cards.projects,
+    },
+    {
+      id: "experience",
+      Icon: Briefcase,
+      accent: "var(--blue)",
+      ...t.bento.cards.experience,
+    },
+    {
+      id: "education",
+      Icon: GraduationCap,
+      accent: "var(--purple)",
+      ...t.bento.cards.education,
+    },
   ] as const;
 
   useEffect(() => {
-    document.body.style.overflow = openId ? 'hidden' : '';
-    return () => { document.body.style.overflow = ''; };
+    document.body.style.overflow = openId ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
   }, [openId]);
 
   useEffect(() => {
-    const handler = (e: KeyboardEvent) => { if (e.key === 'Escape') setOpenId(null); };
-    window.addEventListener('keydown', handler);
-    return () => window.removeEventListener('keydown', handler);
+    const handler = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpenId(null);
+    };
+    window.addEventListener("keydown", handler);
+    return () => window.removeEventListener("keydown", handler);
   }, []);
 
   return (
@@ -49,7 +73,7 @@ export default function BentoGrid() {
               key={id}
               id={id}
               className={`bento-preview-card bento-card-${id}`}
-              style={{ visibility: openId === id ? 'hidden' : 'visible' }}
+              style={{ visibility: openId === id ? "hidden" : "visible" }}
               onClick={() => setOpenId(id)}
               whileHover={{ scale: 1.015, transition: { duration: 0.15 } }}
               whileTap={{ scale: 0.97 }}
@@ -90,7 +114,7 @@ export default function BentoGrid() {
               initial={{ opacity: 0, scale: 0.94, y: 16 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.94, y: 16 }}
-              transition={{ duration: 0.22, ease: 'easeOut' }}
+              transition={{ duration: 0.22, ease: "easeOut" }}
             >
               <button
                 className="bento-close-btn"
@@ -99,9 +123,7 @@ export default function BentoGrid() {
               >
                 <X size={17} />
               </button>
-              <div className="bento-modal-scroll">
-                {MODAL_CONTENT[openId]}
-              </div>
+              <div className="bento-modal-scroll">{MODAL_CONTENT[openId]}</div>
             </motion.div>
           </>
         )}

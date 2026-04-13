@@ -5,10 +5,10 @@ import {
   useTransform,
   AnimatePresence,
   MotionValue,
-} from 'framer-motion';
-import { Children, cloneElement, useEffect, useRef, useState } from 'react';
-import type { ReactNode } from 'react';
-import './Dock.css';
+} from "framer-motion";
+import { Children, cloneElement, useEffect, useRef, useState } from "react";
+import type { ReactNode } from "react";
+import "./Dock.css";
 
 interface DockItemProps {
   children: ReactNode;
@@ -23,7 +23,7 @@ interface DockItemProps {
 
 function DockItem({
   children,
-  className = '',
+  className = "",
   onClick,
   mouseX,
   spring,
@@ -35,14 +35,17 @@ function DockItem({
   const isHovered = useMotionValue(0);
 
   const mouseDistance = useTransform(mouseX, (val: number) => {
-    const rect = ref.current?.getBoundingClientRect() ?? { x: 0, width: baseItemSize };
+    const rect = ref.current?.getBoundingClientRect() ?? {
+      x: 0,
+      width: baseItemSize,
+    };
     return val - rect.x - baseItemSize / 2;
   });
 
   const targetSize = useTransform(
     mouseDistance,
     [-distance, 0, distance],
-    [baseItemSize, magnification, baseItemSize]
+    [baseItemSize, magnification, baseItemSize],
   );
   const size = useSpring(targetSize, spring);
 
@@ -59,8 +62,11 @@ function DockItem({
       tabIndex={0}
       role="button"
     >
-      {Children.map(children, child =>
-        cloneElement(child as React.ReactElement<{ isHovered?: MotionValue<number> }>, { isHovered })
+      {Children.map(children, (child) =>
+        cloneElement(
+          child as React.ReactElement<{ isHovered?: MotionValue<number> }>,
+          { isHovered },
+        ),
       )}
     </motion.div>
   );
@@ -72,12 +78,12 @@ interface DockLabelProps {
   isHovered?: MotionValue<number>;
 }
 
-function DockLabel({ children, className = '', isHovered }: DockLabelProps) {
+function DockLabel({ children, className = "", isHovered }: DockLabelProps) {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     if (!isHovered) return;
-    const unsubscribe = isHovered.on('change', latest => {
+    const unsubscribe = isHovered.on("change", (latest) => {
       setIsVisible(latest === 1);
     });
     return () => unsubscribe();
@@ -106,7 +112,7 @@ interface DockIconProps {
   className?: string;
 }
 
-function DockIcon({ children, className = '' }: DockIconProps) {
+function DockIcon({ children, className = "" }: DockIconProps) {
   return <div className={`dock-icon ${className}`}>{children}</div>;
 }
 
@@ -129,7 +135,7 @@ interface DockProps {
 
 export default function Dock({
   items,
-  className = '',
+  className = "",
   spring = { mass: 0.1, stiffness: 150, damping: 12 },
   magnification = 80,
   distance = 200,

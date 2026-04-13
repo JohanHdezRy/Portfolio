@@ -1,12 +1,12 @@
-import { motion, useInView } from 'framer-motion';
-import { useRef } from 'react';
-import { MapPin, Calendar } from 'lucide-react';
-import { useLanguage } from '../context/LanguageContext';
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
+import { MapPin, Calendar } from "lucide-react";
+import { useLanguage } from "../context/LanguageContext";
 
 export default function Experience() {
   const { t } = useLanguage();
   const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: '-80px' });
+  const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
     <section className="section" id="experience" ref={ref}>
@@ -15,7 +15,7 @@ export default function Experience() {
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5 }}
-          style={{ marginBottom: '2.5rem' }}
+          style={{ marginBottom: "2.5rem" }}
         >
           <p className="section-label">{t.experience.label}</p>
           <h2 className="section-title">{t.experience.heading}</h2>
@@ -23,7 +23,7 @@ export default function Experience() {
 
         <div className="exp-cards">
           {t.experience.items.map((item, i) => {
-            const [org, location] = item.org.split(' · ');
+            const [org, location] = item.org.split(" · ");
             return (
               <motion.div
                 key={item.title}

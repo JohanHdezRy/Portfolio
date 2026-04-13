@@ -32,10 +32,10 @@ export interface Translations {
     label: string;
     heading: string;
     cards: {
-      skills:     { label: string; title: string; subtitle: string };
-      projects:   { label: string; title: string; subtitle: string };
+      skills: { label: string; title: string; subtitle: string };
+      projects: { label: string; title: string; subtitle: string };
       experience: { label: string; title: string; subtitle: string };
-      education:  { label: string; title: string; subtitle: string };
+      education: { label: string; title: string; subtitle: string };
     };
     close: string;
   };
@@ -107,10 +107,10 @@ export const translations: Record<Lang, Translations> = {
       label: 'Portfolio',
       heading: 'Explora mi trabajo',
       cards: {
-        skills:     { label: 'Habilidades', title: 'Tecnologías y herramientas', subtitle: '5 áreas · 18+ tecnologías' },
-        projects:   { label: 'Proyectos',   title: 'Lo que he construido',       subtitle: '4 proyectos destacados' },
-        experience: { label: 'Experiencia', title: 'Experiencia profesional',    subtitle: '2 posiciones' },
-        education:  { label: 'Educación',   title: 'Ingeniería en Sistemas',     subtitle: 'TecNM · 2021 – 2025' },
+        skills: { label: 'Habilidades', title: 'Tecnologías y herramientas', subtitle: '5 áreas · 18+ tecnologías' },
+        projects: { label: 'Proyectos', title: 'Lo que he construido', subtitle: '4 proyectos destacados' },
+        experience: { label: 'Experiencia', title: 'Experiencia profesional', subtitle: '2 posiciones' },
+        education: { label: 'Educación', title: 'Ingeniería en Sistemas', subtitle: 'TecNM · 2021 – 2025' },
       },
       close: 'Cerrar',
     },
@@ -198,10 +198,10 @@ export const translations: Record<Lang, Translations> = {
       label: 'Portfolio',
       heading: 'Explore my work',
       cards: {
-        skills:     { label: 'Skills',     title: 'Technologies & tools',    subtitle: '5 areas · 18+ technologies' },
-        projects:   { label: 'Projects',   title: "What I've built",         subtitle: '4 featured projects' },
+        skills: { label: 'Skills', title: 'Technologies & tools', subtitle: '5 areas · 18+ technologies' },
+        projects: { label: 'Projects', title: "What I've built", subtitle: '4 featured projects' },
         experience: { label: 'Experience', title: 'Professional Experience', subtitle: '2 positions' },
-        education:  { label: 'Education',  title: 'Systems Engineering',     subtitle: 'TecNM · 2021 – 2025' },
+        education: { label: 'Education', title: 'Systems Engineering', subtitle: 'TecNM · 2021 – 2025' },
       },
       close: 'Close',
     },

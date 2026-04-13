@@ -1,26 +1,55 @@
-import { motion, useInView } from 'framer-motion';
-import { useRef } from 'react';
-import { Code2, Server, Cloud, Network, Wrench } from 'lucide-react';
-import { ParticleCard, GlobalSpotlight } from '../effects/MagicBento';
-import { useLanguage } from '../context/LanguageContext';
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
+import { Code2, Server, Cloud, Network, Wrench } from "lucide-react";
+import { ParticleCard, GlobalSpotlight } from "../effects/MagicBento";
+import { useLanguage } from "../context/LanguageContext";
 
 export default function Skills() {
   const { t } = useLanguage();
   const ref = useRef(null);
   const gridRef = useRef<HTMLDivElement>(null);
-  const inView = useInView(ref, { once: true, margin: '-80px' });
+  const inView = useInView(ref, { once: true, margin: "-80px" });
 
   const groups = [
-    { icon: <Code2 size={18} />,    iconClass: 'icon-blue',   name: 'Frontend',              tags: ['React', 'TypeScript', 'JavaScript', 'Tailwind', 'Vite'] },
-    { icon: <Server size={18} />,   iconClass: 'icon-purple', name: 'Backend & BD',           tags: ['Node.js', 'Express.js', '.NET', 'PostgreSQL', 'MySQL'] },
-    { icon: <Cloud size={18} />,    iconClass: 'icon-cyan',   name: 'DevOps / Cloud',         tags: ['Docker', 'GitHub', 'GitLab CI/CD'] },
-    { icon: <Network size={18} />,  iconClass: 'icon-green',  name: t.skills.groups.networks, tags: ['CCNA'] },
-    { icon: <Wrench size={18} />,   iconClass: 'icon-orange', name: t.skills.groups.tools,    tags: ['VS Code', 'Figma', 'Cursor', 'Postman', 'Git'] },
+    {
+      icon: <Code2 size={18} />,
+      iconClass: "icon-blue",
+      name: "Frontend",
+      tags: ["React", "TypeScript", "JavaScript", "Tailwind", "Vite"],
+    },
+    {
+      icon: <Server size={18} />,
+      iconClass: "icon-purple",
+      name: "Backend & BD",
+      tags: ["Node.js", "Express.js", ".NET", "PostgreSQL", "MySQL"],
+    },
+    {
+      icon: <Cloud size={18} />,
+      iconClass: "icon-cyan",
+      name: "DevOps / Cloud",
+      tags: ["Docker", "GitHub", "GitLab CI/CD"],
+    },
+    {
+      icon: <Network size={18} />,
+      iconClass: "icon-green",
+      name: t.skills.groups.networks,
+      tags: ["CCNA"],
+    },
+    {
+      icon: <Wrench size={18} />,
+      iconClass: "icon-orange",
+      name: t.skills.groups.tools,
+      tags: ["VS Code", "Figma", "Cursor", "Postman", "Git"],
+    },
   ];
 
   return (
     <section className="section skills-bg" ref={ref}>
-      <GlobalSpotlight gridRef={gridRef} glowColor="79, 126, 248" spotlightRadius={280} />
+      <GlobalSpotlight
+        gridRef={gridRef}
+        glowColor="79, 126, 248"
+        spotlightRadius={280}
+      />
       <div className="container">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -47,11 +76,17 @@ export default function Skills() {
                 particleCount={8}
               >
                 <div className="skill-group-header">
-                  <div className={`skill-group-icon ${g.iconClass}`}>{g.icon}</div>
+                  <div className={`skill-group-icon ${g.iconClass}`}>
+                    {g.icon}
+                  </div>
                   <span className="skill-group-name">{g.name}</span>
                 </div>
                 <div className="skill-tags">
-                  {g.tags.map(t => <span key={t} className="skill-tag">{t}</span>)}
+                  {g.tags.map((t) => (
+                    <span key={t} className="skill-tag">
+                      {t}
+                    </span>
+                  ))}
                 </div>
               </ParticleCard>
             </motion.div>
