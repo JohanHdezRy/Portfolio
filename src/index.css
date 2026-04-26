@@ -695,16 +695,8 @@ ul {
 
 /* Skills bento grid */
 .skills-bento {
-  display: grid;
-  grid-template-columns: 1fr 1.5fr;
-  gap: 1.25rem;
-  align-items: start;
-}
-
-.skills-bento-col {
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
+  column-width: 320px;
+  column-gap: 1.25rem;
 }
 
 .bento-card {
@@ -713,6 +705,11 @@ ul {
   border-radius: var(--radius);
   padding: 2.25rem 2.5rem;
   transition: border-color 0.2s, box-shadow 0.2s;
+  height: fit-content;
+  break-inside: avoid;
+  margin-bottom: 1.25rem;
+  display: inline-block;
+  width: 100%;
 }
 
 .bento-card:hover {
@@ -721,7 +718,7 @@ ul {
 }
 
 .bento-card-title {
-  font-size: 1.15rem;
+  font-size: 1.2rem;
   font-weight: 800;
   color: var(--text);
   text-transform: uppercase;
@@ -734,8 +731,8 @@ ul {
 }
 
 .bento-skill-grid {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 14px;
 }
 
@@ -748,7 +745,7 @@ ul {
   border: 1px solid var(--border);
   border-radius: 14px;
   padding: 1.1rem 1.25rem;
-  min-width: 90px;
+  min-width: 0;
   transition: border-color 0.15s, transform 0.15s, background 0.15s;
   cursor: default;
 }
@@ -776,7 +773,11 @@ ul {
 
 @media (max-width: 768px) {
   .skills-bento {
-    grid-template-columns: 1fr;
+    columns: 1;
+  }
+
+  .bento-skill-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
@@ -982,6 +983,12 @@ ul {
   font-size: 0.97rem;
   color: var(--muted2);
   line-height: 1.8;
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+.exp-card-desc li + li {
+  margin-top: 0.45rem;
 }
 
 @media (max-width: 600px) {

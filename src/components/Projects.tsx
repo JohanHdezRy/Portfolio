@@ -2,7 +2,6 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import ChromaGrid from "../effects/ChromaGrid";
 import { useLanguage } from "../context/LanguageContext";
-
 import hotelImg from "../imgs/hotel-demos.png";
 import taskImg from "../imgs/task.png";
 import webDemosImg from "../imgs/web-demos.png";
@@ -11,11 +10,23 @@ import inveImg from "../imgs/inventario.png";
 
 const projects = [
   {
+    image: "comming",
+    title: "NOC Dashboard",
+    handle:
+      "React · TypeScript · Vite · Node.js · Express · PostgreSQL · WebSocket",
+    subtitle:
+      "Real-time Network Operations Center for monitoring cloud services. Automatic health checks every 30s, incident management, live WebSocket updates, and email alerts on failures.",
+    borderColor: "#08f687",
+    gradient: "linear-gradient(150deg, #0a1f12 0%, #050508 60%)",
+    github: "",
+    demo: "",
+  },
+  {
     image: hotelImg,
     title: "Hotel Demos Web",
-    handle: "React · TypeScript · CSS · Framer Motion",
+    handle: "React · TypeScript · GSAP · Tailwind · Vite",
     subtitle:
-      "7 luxury hotel landing pages, each with a unique design system and custom scroll animations. Deployed via GitHub Actions.",
+      "Portfolio of six Business web concepts — each with its own design system, color palette, typography, and custom animations. Built from scratch, no UI component libraries.",
     borderColor: "#7c3aed",
     gradient: "linear-gradient(150deg, #1a0a2e 0%, #050508 60%)",
     github: "https://github.com/JohanHdezRy/Hotel-Demos-Web",
@@ -24,7 +35,7 @@ const projects = [
   {
     image: webDemosImg,
     title: "WEB Demos",
-    handle: "React · TypeScript · GSAP · WebGL · ogl",
+    handle: "React · TypeScript · GSAP · Tailwind · Vite",
     subtitle:
       "6 production-quality demos: restaurant, e-commerce, creative agency, real estate and more. WebGL particle backgrounds and spring animations.",
     borderColor: "#06b6d4",
@@ -59,7 +70,7 @@ const projects = [
     title: "Inventory-System ",
     handle: "React · TypeScript",
     subtitle: "",
-    borderColor: "#f59e0b",
+    borderColor: "#f50b0b",
     gradient: "linear-gradient(150deg, #1f1200 0%, #050508 60%)",
     github: "https://github.com/JohanHdezRy/Gifs-Search",
     demo: "https://johanhdezry.github.io/Gifs-Search/",

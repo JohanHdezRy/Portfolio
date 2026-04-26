@@ -55,7 +55,7 @@ export interface Translations {
   experience: {
     label: string;
     heading: string;
-    items: readonly { title: string; org: string; period: string; desc: string }[];
+    items: readonly { title: string; org: string; period: string; desc: readonly string[] }[];
   };
   education: {
     label: string;
@@ -89,7 +89,7 @@ export const translations: Record<Lang, Translations> = {
       role2: 'Computacionales',
       typingTexts: ['Entusiasta de la tecnología', 'Desarrollador Full-Stack', 'Diseñador de experiencias'],
       description: 'Construyo interfaces limpias, escalables y de alto rendimiento que impresionan.',
-      techTags: ['React', 'TypeScript', 'Node.js', 'Figma'],
+      techTags: ['React', 'TypeScript', 'Node.js', 'CCNA'],
       contactBtn: 'Contacto',
       viewProjects: 'Ver proyectos',
       title: 'Ing. en Sistemas Computacionales · Desarrollador full-stack con fuerte enfoque en frontend moderno.',
@@ -137,16 +137,24 @@ export const translations: Record<Lang, Translations> = {
       heading: 'Experiencia profesional',
       items: [
         {
-          title: 'Backend Software Engineering Assistant',
+          title: 'Backend Software Engineering',
           org: 'CENIDET · Cuernavaca, Morelos',
           period: 'Jul 2025 – Nov 2025',
-          desc: 'Desarrollé y mantuve servicios backend con Node.js y MySQL. Asistí en el diseño e implementación de APIs y lógica de negocio del lado del servidor. Colaboré con el equipo de investigación durante todo el ciclo de desarrollo de software.',
+          desc: [
+            'Desarrollé y mantuve servicios backend con Node.js y MySQL.',
+            'Asistí en el diseño e implementación de APIs y lógica de negocio del lado del servidor.',
+            'Colaboré con el equipo de investigación durante todo el ciclo de desarrollo de software.',
+          ],
         },
         {
           title: 'Network Infrastructure Engineer',
           org: 'UNID Campus Cozumel · Cozumel, Quintana Roo',
           period: 'Ene 2025 – Jun 2025',
-          desc: 'Diseñé y desplegué una red de servidores para soportar eventos académicos competitivos. Configuré switches y routers Cisco para garantizar conectividad fiable bajo alta demanda. Gestioné el despliegue de red de extremo a extremo, desde la planificación hasta la operación en vivo.',
+          desc: [
+            'Diseñé y desplegué una red de servidores para soportar eventos académicos competitivos.',
+            'Configuré switches y routers Cisco para garantizar conectividad fiable bajo alta demanda.',
+            'Gestioné el despliegue de red de extremo a extremo, desde la planificación hasta la operación en vivo.',
+          ],
         },
       ],
     },
@@ -180,7 +188,7 @@ export const translations: Record<Lang, Translations> = {
       role2: 'Engineer',
       typingTexts: ['Tech Enthusiast', 'Full-Stack Developer', 'Experience Designer'],
       description: 'Building smooth, scalable, and high-performance interfaces that impress.',
-      techTags: ['React', 'TypeScript', 'Node.js', 'Figma'],
+      techTags: ['React', 'TypeScript', 'Node.js', 'CCNA'],
       contactBtn: 'Contact',
       viewProjects: 'View projects',
       title: 'Computer Systems Engineer · Full-stack developer with a strong focus on modern frontend.',
@@ -190,8 +198,8 @@ export const translations: Record<Lang, Translations> = {
       heading: 'Who am I?',
       status: 'Available',
       contactText: 'Contact',
-      bio1: 'Full-stack developer with a strong focus on modern frontend, passionate about building clean and performant user interfaces. I pick up new technologies quickly — from configuring Cisco network infrastructure to shipping full-stack web apps with React and Node.js.',
-      bio2: 'I write TypeScript-first code, care about architecture, and thrive in environments where I can take ownership, learn from senior engineers, and push toward production-level quality.',
+      bio1: 'Software engineer with a full-stack background, focused on building reliable, scalable, and well-structured systems. I have experience developing modern web applications with React, Node.js, and .NET, along with a solid foundation in networking (CCNA) and system-level thinking. I am particularly interested in the broader scope of software engineering, including backend architecture, infrastructure, and distributed systems. I enjoy understanding how systems operate end-to-end, from user interfaces to servers, networks, and deployment pipelines.',
+      bio2: 'I write TypeScript-first code, prioritize clean architecture, and continuously expand my skill set toward cloud, DevOps, and system reliability. I perform best in environments where I can learn and collaborate with experienced engineers, and contribute to production-grade systems.',
       softSkills: ['Proactivity', 'Teamwork', 'Eagerness to learn', 'Responsibility', 'Adaptability', 'English C1'],
     },
     bento: {
@@ -228,16 +236,24 @@ export const translations: Record<Lang, Translations> = {
       heading: 'Professional experience',
       items: [
         {
-          title: 'Backend Software Engineering Assistant',
+          title: 'Backend Software Engineering',
           org: 'CENIDET · Cuernavaca, Morelos',
           period: 'Jul 2025 – Nov 2025',
-          desc: 'Developed and maintained backend services using Node.js and MySQL. Assisted in the design and implementation of APIs and server-side business logic. Collaborated with the research team throughout the software development lifecycle.',
+          desc: [
+            'Developed and maintained backend services using Node.js and MySQL.',
+            'Assisted in the design and implementation of APIs and server-side business logic.',
+            'Collaborated with the research team throughout the software development lifecycle.',
+          ],
         },
         {
           title: 'Network Infrastructure Engineer',
           org: 'UNID Campus Cozumel · Cozumel, Quintana Roo',
           period: 'Jan 2025 – Jun 2025',
-          desc: 'Designed and deployed a server network to support competitive academic events. Configured Cisco switches and routers to ensure reliable connectivity under high-demand conditions. Managed end-to-end network setup, from planning to live event operation.',
+          desc: [
+            'Designed and deployed a server network to support competitive academic events.',
+            'Configured Cisco switches and routers to ensure reliable connectivity under high-demand conditions.',
+            'Managed end-to-end network setup, from planning to live event operation.',
+          ],
         },
       ],
     },

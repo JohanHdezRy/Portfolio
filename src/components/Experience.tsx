@@ -50,7 +50,11 @@ export default function Experience() {
                     </span>
                   </div>
                 </div>
-                <p className="exp-card-desc">{item.desc}</p>
+                <ul className="exp-card-desc">
+                  {item.desc.map((point) => (
+                    <li key={point}>{point}</li>
+                  ))}
+                </ul>
               </motion.div>
             );
           })}

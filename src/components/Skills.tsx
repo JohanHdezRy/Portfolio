@@ -26,8 +26,20 @@ export default function Skills() {
     {
       icon: <Cloud size={18} />,
       iconClass: "icon-cyan",
-      name: "DevOps / Cloud",
+      name: "DevOps",
       tags: ["Docker", "GitHub", "GitLab CI/CD"],
+    },
+    {
+      icon: <Cloud size={18} />,
+      iconClass: "icon-black",
+      name: "OS",
+      tags: ["Linux, Windows, MacOs"],
+    },
+    {
+      icon: <Cloud size={18} />,
+      iconClass: "icon-cyan",
+      name: "Cloud",
+      tags: ["Azure"],
     },
     {
       icon: <Network size={18} />,
@@ -39,7 +51,7 @@ export default function Skills() {
       icon: <Wrench size={18} />,
       iconClass: "icon-orange",
       name: t.skills.groups.tools,
-      tags: ["VS Code", "Figma", "Cursor", "Postman", "Git"],
+      tags: ["VS Code", "Figma", "Cursor", "Postman"],
     },
   ];
 

@@ -16,9 +16,23 @@ const carouselTechs = [
   { name: "GitHub", slug: "github", color: "ffffff" },
   { name: "Figma", slug: "figma", color: "F24E1E" },
   { name: "VS Code", slug: "visualstudiocode", color: "007ACC" },
+  { name: "Azure", slug: "azure-services1", color: "007ACC" },
 ];
 
 const skillGroups = [
+  {
+    id: "languages",
+    title: "Languages",
+    col: "right",
+    skills: [
+      { name: "TypeScript", slug: "typescript", color: "3178C6" },
+      { name: "JavaScript", slug: "javascript", color: "F7DF1E" },
+      { name: "Python", slug: "python", color: "3776AB" },
+      { name: "Java", slug: "openjdk", color: "ED8B00" },
+      { name: "C++", slug: "C++", color: "00599C" },
+      { name: "C#", slug: "C#", color: "239120" },
+    ],
+  },
   {
     id: "frontend",
     title: "Frontend",
@@ -27,6 +41,7 @@ const skillGroups = [
       { name: "React", slug: "react", color: "61DAFB" },
       { name: "Tailwind", slug: "tailwindcss", color: "06B6D4" },
       { name: "Vite", slug: "vite", color: "646CFF" },
+      { name: "GSAP", slug: "gsap", color: "0AE448" },
     ],
   },
   {
@@ -42,7 +57,7 @@ const skillGroups = [
   {
     id: "database",
     title: "Database",
-    col: "right",
+    col: "left",
     skills: [
       { name: "PostgreSQL", slug: "postgresql", color: "4169E1" },
       { name: "MySQL", slug: "mysql", color: "4479A1" },
@@ -50,7 +65,7 @@ const skillGroups = [
   },
   {
     id: "devops",
-    title: "DevOps / Cloud",
+    title: "DevOps",
     col: "left",
     skills: [
       { name: "Docker", slug: "docker", color: "2496ED" },
@@ -59,26 +74,40 @@ const skillGroups = [
     ],
   },
   {
+    id: "cloud",
+    title: "Cloud",
+    col: "left",
+    skills: [{ name: "Azure", slug: "microsoftazure", color: "0078D4" }],
+  },
+  {
     id: "network",
     title: "Network",
     col: "left",
     skills: [{ name: "Cisco / CCNA", slug: "cisco", color: "1BA0D7" }],
   },
   {
-    id: "tools",
-    title: "Tools",
+    id: "OS",
+    title: "OS",
     col: "left",
     skills: [
-      { name: "VS Code", slug: "visualstudiocode", color: "007ACC" },
-      { name: "Figma", slug: "figma", color: "F24E1E" },
-      { name: "Postman", slug: "postman", color: "FF6C37" },
+      { name: "Linux", slug: "linux", color: "FCC624" },
+      { name: "Windows", slug: "window", color: "ffffff" },
+      { name: "MacOS", slug: "apple", color: "ffffff" },
+    ],
+  },
+  {
+    id: "Software and AI",
+    title: "Tools",
+    col: "right",
+    skills: [
+      { name: "Claude Code", slug: "claude", color: "D97757" },
       { name: "Cursor", slug: "cursor", color: "ffffff" },
+      { name: "VS Code", slug: "visualstudiocode", color: "007ACC" },
+      { name: "Postman", slug: "postman", color: "FF6C37" },
+      { name: "Figma", slug: "figma", color: "F24E1E" },
     ],
   },
 ];
-
-const leftGroups = skillGroups.filter((g) => g.col === "left");
-const rightGroups = skillGroups.filter((g) => g.col === "right");
 
 function SkillItem({
   skill,
@@ -156,53 +185,26 @@ export default function TechBanner() {
         </motion.div>
 
         <div className="skills-bento">
-          {/* Left: DevOps, Network, Tools */}
-          <div className="skills-bento-col skills-bento-col-left">
-            {leftGroups.map((group, gi) => (
-              <motion.div
-                key={group.id}
-                className="bento-card"
-                initial={{ opacity: 0, y: 28 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.5, delay: 0.1 + gi * 0.1 }}
-              >
-                <h3 className="bento-card-title">{group.title}</h3>
-                <div className="bento-skill-grid">
-                  {group.skills.map((s, i) => (
-                    <SkillItem
-                      key={s.name}
-                      skill={s}
-                      delay={0.15 + gi * 0.1 + i * 0.06}
-                    />
-                  ))}
-                </div>
-              </motion.div>
-            ))}
-          </div>
-
-          {/* Right: Frontend, Backend, Database */}
-          <div className="skills-bento-col skills-bento-col-right">
-            {rightGroups.map((group, gi) => (
-              <motion.div
-                key={group.id}
-                className="bento-card"
-                initial={{ opacity: 0, y: 28 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.5, delay: 0.15 + gi * 0.1 }}
-              >
-                <h3 className="bento-card-title">{group.title}</h3>
-                <div className="bento-skill-grid">
-                  {group.skills.map((s, i) => (
-                    <SkillItem
-                      key={s.name}
-                      skill={s}
-                      delay={0.2 + gi * 0.1 + i * 0.06}
-                    />
-                  ))}
-                </div>
-              </motion.div>
-            ))}
-          </div>
+          {skillGroups.map((group, gi) => (
+            <motion.div
+              key={group.id}
+              className="bento-card"
+              initial={{ opacity: 0, y: 28 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.5, delay: 0.1 + gi * 0.08 }}
+            >
+              <h3 className="bento-card-title">{group.title}</h3>
+              <div className="bento-skill-grid">
+                {group.skills.map((s, i) => (
+                  <SkillItem
+                    key={s.name}
+                    skill={s}
+                    delay={0.14 + gi * 0.08 + i * 0.05}
+                  />
+                ))}
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
