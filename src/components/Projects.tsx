@@ -7,10 +7,11 @@ import taskImg from "../imgs/task.png";
 import webDemosImg from "../imgs/web-demos.png";
 import gifsImg from "../imgs/gifs.png";
 import inveImg from "../imgs/inventario.png";
+import NOC from "../imgs/NOC.png";
 
 const projects = [
   {
-    image: "comming",
+    image: NOC,
     title: "NOC Dashboard",
     handle:
       "React · TypeScript · Vite · Node.js · Express · PostgreSQL · WebSocket",
@@ -18,7 +19,7 @@ const projects = [
       "Real-time Network Operations Center for monitoring cloud services. Automatic health checks every 30s, incident management, live WebSocket updates, and email alerts on failures.",
     borderColor: "#08f687",
     gradient: "linear-gradient(150deg, #0a1f12 0%, #050508 60%)",
-    github: "",
+    github: "https://github.com/JohanHdezRy/NOC-Dashboard",
     demo: "",
   },
   {
